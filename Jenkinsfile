@@ -6,4 +6,8 @@ node('master') {
   stage('Test 2'){
     echo 'Hello 2'
   }
+  
+    stage('Test 3'){
+    bat 'dir'
+  }
 }
