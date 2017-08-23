@@ -7,7 +7,26 @@ node('master') {
     echo 'Hello 2'
   }
   
-    stage('Test 3'){
-    bat 'dir'
+  def parallelStages = [
+    "Hello_3": { 
+      node {
+        echo "Hello 3"
+      }
+    },
+    "Hello_4": { 
+      node {
+        echo "Hello 4"
+      }
+    },
+    "Hello_5": { 
+      node {
+        echo "Hello 5"
+      }
+    }]
+
+  stage('Parallel stages')
+  { 
+    parallel parallelStages
   }
+  
 }
